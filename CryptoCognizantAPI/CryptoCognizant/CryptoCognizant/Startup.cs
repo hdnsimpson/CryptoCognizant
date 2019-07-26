@@ -29,6 +29,23 @@ namespace CryptoCognizant
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddDbContext<CryptoCognizantContext>();
+
+            // Register the Swagger generator, defining 1 or more Swagger documents
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info
+                {
+                    Title = "CryptoCognizant API",
+                    Version = "v1",
+                    Description = "A web API providing a custom toolkit for coins, their exchanges, and trading pairs.",
+                    Contact = new Contact
+                    {
+                        Name = "Hayden Simpson",
+                        Email = "hdnsimpson@gmail.com",
+                        Url = "https://github.com/hdnsimpson/CryptoCognizant"
+                    },
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
