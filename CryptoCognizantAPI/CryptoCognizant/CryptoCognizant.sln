@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoCognizant", "CryptoCognizant\CryptoCognizant.csproj", "{0B56A0A8-2C1A-4360-8A65-EF4A4EEB0218}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B56A0A8-2C1A-4360-8A65-EF4A4EEB0218}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B56A0A8-2C1A-4360-8A65-EF4A4EEB0218}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B56A0A8-2C1A-4360-8A65-EF4A4EEB0218}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B56A0A8-2C1A-4360-8A65-EF4A4EEB0218}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F4B59DD7-8C0D-4EE0-80EE-6A1C7E1DAB45}
+	EndGlobalSection
+EndGlobal
