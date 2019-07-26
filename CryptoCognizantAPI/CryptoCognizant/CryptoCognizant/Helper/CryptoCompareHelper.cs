@@ -12,10 +12,7 @@ namespace CryptoCognizant.Helper
     {
         public static void testProgram()
         {
-            Console.WriteLine("Test");
-
-            // Pause the program execution
-            Console.ReadLine();
+            getCoinInfo("BTC");
         }
 
         public static Coin getCoinInfo(string coinSymbol)
@@ -30,8 +27,8 @@ namespace CryptoCognizant.Helper
             dynamic jsonObj = JsonConvert.DeserializeObject<dynamic>(coinInfoJSON);
 
             // Extract information from the dynamic object.
-            String coinSymbol1 = jsonObj["items"][0]["raw"][coinSymbol]["USD"]["FROMSYMBOL"];
-            String imageUrl = jsonObj["items"][0]["raw"][coinSymbol]["USD"]["IMAGEURL"];
+            String coinSymbol1 = jsonObj["RAW"][coinSymbol]["USD"]["FROMSYMBOL"];
+            String imageUrl = jsonObj["RAW"][coinSymbol]["USD"]["IMAGEURL"];
 
             Coin coin = new Coin
             {
