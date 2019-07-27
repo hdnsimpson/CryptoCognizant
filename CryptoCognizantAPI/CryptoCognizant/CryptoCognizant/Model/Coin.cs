@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Runtime.Serialization;
 
 namespace CryptoCognizant.Model
 {
@@ -24,4 +25,21 @@ namespace CryptoCognizant.Model
 
         public virtual ICollection<Exchange> Exchange { get; set; }
     }
+
+    [DataContract]
+    public class CoinDTO
+    {
+        [DataMember]
+        public int CoinId { get; set; }
+
+        [DataMember]
+        public string CoinSymbol { get; set; }
+
+        [DataMember]
+        public string ImageUrl { get; set; }
+
+        [DataMember]
+        public bool IsFavourite { get; set; }
+    }
+
 }
