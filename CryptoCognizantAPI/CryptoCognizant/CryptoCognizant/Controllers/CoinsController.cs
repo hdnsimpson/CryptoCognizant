@@ -73,7 +73,7 @@ namespace CryptoCognizant.Controllers
 
         // POST: api/Coins
         [HttpPost]
-        public async Task<ActionResult<Coin>> PostCoin(Coin coin)
+        public async Task<ActionResult<Coin>> PostCoin([FromBody]SYMDTO data)
         {
             _context.Coin.Add(coin);
             await _context.SaveChangesAsync();
