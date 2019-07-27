@@ -9,6 +9,11 @@ using CryptoCognizant.Model;
 
 namespace CryptoCognizant.Controllers
 {
+    public class SYMDTO
+    {
+        public string SYM { get; set; }
+    }
+
     [Route("api/[controller]")]
     [ApiController]
     public class CoinsController : ControllerBase
