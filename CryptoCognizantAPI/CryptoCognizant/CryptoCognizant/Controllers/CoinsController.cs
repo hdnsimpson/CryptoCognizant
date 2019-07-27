@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CryptoCognizant.Model;
+using CryptoCognizant.Helper;
 
 namespace CryptoCognizant.Controllers
 {
@@ -80,9 +81,24 @@ namespace CryptoCognizant.Controllers
         [HttpPost]
         public async Task<ActionResult<Coin>> PostCoin([FromBody]SYMDTO data)
         {
+            Coin coin;
+            String coinSymbol;
+            try
+            {
+                // Constructing the video object from our helper function
+                coinSymbol = data.SYM;
+                coin = CryptoCompareHelper.getCoinInfo(coinSymbol);
+            }
+            catch
+            {
+                return BadRequest("Invalid Coin Symbol");
+            }
+
+            // Add this video object to the database
             _context.Coin.Add(coin);
             await _context.SaveChangesAsync();
 
+            // Return success code and the info on the video object
             return CreatedAtAction("GetCoin", new { id = coin.CoinId }, coin);
         }
 
