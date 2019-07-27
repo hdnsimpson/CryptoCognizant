@@ -14,5 +14,9 @@ namespace CryptoCognizant.Model
         public bool IsActive { get; set; }
         [StringLength(1000)]
         public string Pairs { get; set; }
+        [StringLength(255)]
+        public string CoinSymbol { get; set; }
+
+        public virtual Coin CoinSymbolNavigation { get; set; }
     }
 }

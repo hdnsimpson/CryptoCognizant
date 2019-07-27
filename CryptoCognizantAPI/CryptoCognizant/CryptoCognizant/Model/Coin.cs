@@ -7,6 +7,11 @@ namespace CryptoCognizant.Model
 {
     public partial class Coin
     {
+        public Coin()
+        {
+            Exchange = new HashSet<Exchange>();
+        }
+
         public int CoinId { get; set; }
         [Required]
         [StringLength(255)]
@@ -16,5 +21,7 @@ namespace CryptoCognizant.Model
         public string ImageUrl { get; set; }
         [Column("isFavourite")]
         public bool IsFavourite { get; set; }
+
+        public virtual ICollection<Exchange> Exchange { get; set; }
     }
 }
