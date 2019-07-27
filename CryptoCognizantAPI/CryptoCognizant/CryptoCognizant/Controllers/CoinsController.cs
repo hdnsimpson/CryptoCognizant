@@ -9,6 +9,7 @@ using CryptoCognizant.Model;
 using CryptoCognizant.Helper;
 using Microsoft.AspNetCore.Mvc;
 using CryptoCognizant.DAL;
+using AutoMapper;
 
 namespace CryptoCognizant.Controllers
 {
@@ -23,10 +24,12 @@ namespace CryptoCognizant.Controllers
     {
         private readonly CryptoCognizantContext _context;
         private ICoinRepository coinRepository;
+        private readonly IMapper _mapper;
 
-        public CoinsController(CryptoCognizantContext context)
+        public CoinsController(CryptoCognizantContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
             this.coinRepository = new CoinRepository(new CryptoCognizantContext());
         }
 
