@@ -98,6 +98,30 @@ namespace CryptoCognizant.Controllers
             _context.Coin.Add(coin);
             await _context.SaveChangesAsync();
 
+            // Get the primary key
+            int id = coin.CoinId;
+
+            // Insert exchanges in a non-blocking fashion
+            CryptoCognizantContext tempContext = new CryptoCognizantContext();
+            ExchangesController exchangesController = new ExchangesController(tempContext);
+
+            // Add exchanges on another thread
+            Task addExchanges = Task.Run(async () =>
+            {
+                // Get a list of exchanges from CryptoCompareHelper
+                List<Exchange> exchanges = new List<Exchange>();
+                exchanges = CryptoCompareHelper.getExchanges(coinSymbol);
+
+                for (int i = 0; i < exchanges.Count; i++)
+                {
+                    // Get the exchange objects from exchanges and assign coinSymbol to CoinSymbol, the primary key of the newly inserted coin
+                    Exchange exchange = exchanges.ElementAt(i);
+                    exchange.CoinSymbol = coinSymbol;
+                    // Add this exchange to the database
+                    await exchangesController.PostExchange(exchange);
+                }
+            });
+
             // Return success code and the info on the video object
             return CreatedAtAction("GetCoin", new { id = coin.CoinId }, coin);
         }
