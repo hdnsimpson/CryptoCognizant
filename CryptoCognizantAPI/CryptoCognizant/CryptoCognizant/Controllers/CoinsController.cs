@@ -146,6 +146,11 @@ namespace CryptoCognizant.Controllers
         [HttpGet("SearchByPairs/{searchString}")]
         public async Task<ActionResult<IEnumerable<Coin>>> Search(string searchString)
         {
+            if (String.IsNullOrEmpty(searchString))
+            {
+                return BadRequest("Search string cannot be null or empty.");
+            }
+
             var coins = await _context.Coin.Include(coin => coin.Exchange).Select(coin => new Coin
             {
                 CoinId = coin.CoinId,
