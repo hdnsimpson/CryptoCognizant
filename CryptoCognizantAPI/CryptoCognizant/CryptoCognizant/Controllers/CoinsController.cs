@@ -10,6 +10,7 @@ using CryptoCognizant.Helper;
 using Microsoft.AspNetCore.Mvc;
 using CryptoCognizant.DAL;
 using AutoMapper;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace CryptoCognizant.Controllers
 {
@@ -82,6 +83,24 @@ namespace CryptoCognizant.Controllers
             }
 
             return NoContent();
+        }
+
+        //PUT with PATCH to handle isFavourite
+        [HttpPatch("update/{id}")]
+        public CoinDTO Patch(int id, [FromBody]JsonPatchDocument<CoinDTO> coinPatch)
+        {
+            //get original coin object from the database
+            Coin originCoin = coinRepository.GetCoinByID(id);
+            //use automapper to map that to DTO object
+            CoinDTO coinDTO = _mapper.Map<CoinDTO>(originCoin);
+            //apply the patch to that DTO
+            coinPatch.ApplyTo(coinDTO);
+            //use automapper to map the DTO back ontop of the database object
+            _mapper.Map(coinDTO, originCoin);
+            //update coin in the database
+            _context.Update(originCoin);
+            _context.SaveChanges();
+            return coinDTO;
         }
 
         // POST: api/Coins
