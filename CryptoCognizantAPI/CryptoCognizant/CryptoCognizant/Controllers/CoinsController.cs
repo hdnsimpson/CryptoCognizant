@@ -142,6 +142,14 @@ namespace CryptoCognizant.Controllers
             return coin;
         }
 
+        // GET api/Coins/SearchByPairs/5
+        [HttpGet("SearchByPairs/{searchString}")]
+        public async Task<ActionResult<IEnumerable<Coin>>> Search(string searchString)
+        {
+            var coins = await _context.Coin.Include(coin => coin.Exchange).ToListAsync();
+            return Ok(coins);
+        }
+
         private bool CoinExists(int id)
         {
             return _context.Coin.Any(e => e.CoinId == id);
