@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CryptoCognizant.Model;
 using CryptoCognizant.Helper;
+using Microsoft.AspNetCore.Mvc;
+using CryptoCognizant.DAL;
 
 namespace CryptoCognizant.Controllers
 {
@@ -20,10 +22,12 @@ namespace CryptoCognizant.Controllers
     public class CoinsController : ControllerBase
     {
         private readonly CryptoCognizantContext _context;
+        private ICoinRepository coinRepository;
 
         public CoinsController(CryptoCognizantContext context)
         {
             _context = context;
+            this.coinRepository = new CoinRepository(new CryptoCognizantContext());
         }
 
         // GET: api/Coins
