@@ -146,7 +146,15 @@ namespace CryptoCognizant.Controllers
         [HttpGet("SearchByPairs/{searchString}")]
         public async Task<ActionResult<IEnumerable<Coin>>> Search(string searchString)
         {
-            var coins = await _context.Coin.Include(coin => coin.Exchange).ToListAsync();
+            var coins = await _context.Coin.Include(coin => coin.Exchange).Select(coin => new Coin
+            {
+                CoinId = coin.CoinId,
+                CoinSymbol = coin.CoinSymbol,
+                ImageUrl = coin.ImageUrl,
+                IsFavourite = coin.IsFavourite,
+                Exchange = coin.Exchange.Where(exch => exch.Pairs.Contains(searchString)).ToList()
+            }).ToListAsync();
+
             return Ok(coins);
         }
 
