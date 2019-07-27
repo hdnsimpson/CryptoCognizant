@@ -13111,9 +13111,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\hayde\\OneDrive\\Desktop\\CryptoCognizant\\CryptoCognizantAPI\\CryptoCognizant\\CryptoCognizant\\CryptoCognizant.csproj",
-      "projectName": "CryptoCognizant",
-      "projectPath": "C:\\Users\\hayde\\OneDrive\\Desktop\\CryptoCognizant\\CryptoCognizantAPI\\CryptoCognizant\\CryptoCognizant\\CryptoCognizant.csproj",
+      "projectUniqueName": "C:\\Users\\hayde\\OneDrive\\Desktop\\CryptoCognizant\\CryptoCognizantAPI\\CryptoCognizant\\CryptoCognizant\\CryptoCognizantAPI.csproj",
+      "projectName": "CryptoCognizantAPI",
+      "projectPath": "C:\\Users\\hayde\\OneDrive\\Desktop\\CryptoCognizant\\CryptoCognizantAPI\\CryptoCognizant\\CryptoCognizant\\CryptoCognizantAPI.csproj",
       "packagesPath": "C:\\Users\\hayde\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\hayde\\OneDrive\\Desktop\\CryptoCognizant\\CryptoCognizantAPI\\CryptoCognizant\\CryptoCognizant\\obj\\",
       "projectStyle": "PackageReference",

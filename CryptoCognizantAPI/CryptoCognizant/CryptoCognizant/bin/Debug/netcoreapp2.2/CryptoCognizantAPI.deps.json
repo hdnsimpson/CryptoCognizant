@@ -22,7 +22,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v2.2": {
-      "CryptoCognizant/1.0.0": {
+      "CryptoCognizantAPI/1.0.0": {
         "dependencies": {
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "6.1.1",
           "Microsoft.AspNetCore.App": "2.2.0",
@@ -34,10 +34,10 @@
           "Swashbuckle.AspNetCore": "4.0.1"
         },
         "runtime": {
-          "CryptoCognizant.dll": {}
+          "CryptoCognizantAPI.dll": {}
         },
         "compile": {
-          "CryptoCognizant.dll": {}
+          "CryptoCognizantAPI.dll": {}
         }
       },
       "AutoMapper/8.1.1": {
@@ -3643,7 +3643,7 @@
     }
   },
   "libraries": {
-    "CryptoCognizant/1.0.0": {
+    "CryptoCognizantAPI/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
