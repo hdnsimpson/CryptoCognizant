@@ -155,6 +155,9 @@ namespace CryptoCognizant.Controllers
                 Exchange = coin.Exchange.Where(exch => exch.Pairs.Contains(searchString)).ToList()
             }).ToListAsync();
 
+            // Removes all coins with empty trading pairs
+            coins.RemoveAll(coin => coin.Exchange.Count == 0);
+
             return Ok(coins);
         }
 
