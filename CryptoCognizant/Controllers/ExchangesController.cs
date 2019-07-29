@@ -6,9 +6,12 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using CryptoCognizant.Model;
+using System.Web.Http.Cors;
 
 namespace CryptoCognizant.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class ExchangesController : ControllerBase

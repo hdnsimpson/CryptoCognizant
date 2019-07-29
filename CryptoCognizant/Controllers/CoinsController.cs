@@ -11,9 +11,12 @@ using Microsoft.AspNetCore.Mvc;
 using CryptoCognizant.DAL;
 using AutoMapper;
 using Microsoft.AspNetCore.JsonPatch;
+using System.Web.Http.Cors;
 
 namespace CryptoCognizant.Controllers
 {
+    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+
     public class SYMDTO
     {
         public string SYM { get; set; }
