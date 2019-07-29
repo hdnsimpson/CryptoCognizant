@@ -11,3 +11,17 @@ C:\Users\hayde\OneDrive\Desktop\CryptoCognizant\CryptoCognizantAPI\CryptoCogniza
 C:\Users\hayde\OneDrive\Desktop\CryptoCognizant\CryptoCognizantAPI\CryptoCognizant\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.RazorTargetAssemblyInfo.cache
 C:\Users\hayde\OneDrive\Desktop\CryptoCognizant\CryptoCognizantAPI\CryptoCognizant\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.dll
 C:\Users\hayde\OneDrive\Desktop\CryptoCognizant\CryptoCognizantAPI\CryptoCognizant\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.pdb
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\bin\Debug\netcoreapp2.2\CryptoCognizantAPI.deps.json
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\bin\Debug\netcoreapp2.2\CryptoCognizantAPI.runtimeconfig.json
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\bin\Debug\netcoreapp2.2\CryptoCognizantAPI.runtimeconfig.dev.json
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\bin\Debug\netcoreapp2.2\CryptoCognizantAPI.dll
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\bin\Debug\netcoreapp2.2\CryptoCognizantAPI.pdb
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.csprojAssemblyReference.cache
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.csproj.CoreCompileInputs.cache
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.RazorAssemblyInfo.cache
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.RazorAssemblyInfo.cs
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.AssemblyInfoInputs.cache
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.AssemblyInfo.cs
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.RazorTargetAssemblyInfo.cache
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.dll
+C:\Users\hayde\OneDrive\Desktop\CryptoCognizantAPI\CryptoCognizant\obj\Debug\netcoreapp2.2\CryptoCognizantAPI.pdb
