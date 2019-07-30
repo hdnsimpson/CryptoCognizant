@@ -36,6 +36,8 @@ namespace CryptoCognizant
                     builder =>
                     {
                         builder.AllowAnyOrigin();
+                        builder.AllowAnyHeader();
+                        builder.AllowAnyMethod();
                     });
             });
 
