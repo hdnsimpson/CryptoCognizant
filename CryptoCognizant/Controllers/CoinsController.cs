@@ -114,7 +114,7 @@ namespace CryptoCognizant.Controllers
             String coinSymbol;
             try
             {
-                // Constructing the video object from our helper function
+                // Constructing the coin object from our helper function
                 coinSymbol = data.SYM;
                 coin = CryptoCompareHelper.getCoinInfo(coinSymbol);
             }
@@ -123,7 +123,7 @@ namespace CryptoCognizant.Controllers
                 return BadRequest("Invalid Coin Symbol");
             }
 
-            // Add this video object to the database
+            // Add this coin object to the database
             _context.Coin.Add(coin);
             await _context.SaveChangesAsync();
 
@@ -151,7 +151,7 @@ namespace CryptoCognizant.Controllers
                 }
             });
 
-            // Return success code and the info on the video object
+            // Return success code and the info on the coin object
             return CreatedAtAction("GetCoin", new { id = coin.CoinId }, coin);
         }
 
