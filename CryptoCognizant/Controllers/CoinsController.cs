@@ -195,6 +195,30 @@ namespace CryptoCognizant.Controllers
             return Ok(coins);
         }
 
+        // GET api/Coins/SearchBySymbol/5
+        [HttpGet("SearchBySymbol/{searchString}")]
+        public async Task<ActionResult<IEnumerable<Coin>>> SearchSymbol(string searchString)
+        {
+            if (String.IsNullOrEmpty(searchString))
+            {
+                return BadRequest("Search string cannot be null or empty.");
+            }
+
+            var coins = await _context.Coin.Include(coin => coin.Exchange).Select(coin => new Coin
+            {
+                CoinId = coin.CoinId,
+                CoinSymbol = coin.CoinSymbol,
+                ImageUrl = coin.ImageUrl,
+                IsFavourite = coin.IsFavourite,
+                Exchange = coin.Exchange.Where(exch => exch.CoinSymbol.Contains(searchString)).ToList()
+            }).ToListAsync();
+
+            // Removes all coins with empty trading pairs
+            coins.RemoveAll(coin => coin.Exchange.Count == 0);
+
+            return Ok(coins);
+        }
+
         private bool CoinExists(int id)
         {
             return _context.Coin.Any(e => e.CoinId == id);
