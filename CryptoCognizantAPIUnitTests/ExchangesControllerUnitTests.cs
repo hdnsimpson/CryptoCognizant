@@ -9,6 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace CryptoCognizantAPIUnitTests
 {
@@ -52,6 +53,51 @@ namespace CryptoCognizantAPIUnitTests
                 context.Exchange.RemoveRange(context.Exchange);
                 context.SaveChanges();
             };
+        }
+
+        // Make sure results are returned when GetExchange() is called
+        [TestMethod]
+        public async Task TestGetSuccessfully()
+        {
+            using (var context = new CryptoCognizantContext(options))
+            {
+                ExchangesController exchangesController = new ExchangesController(context);
+                ActionResult<IEnumerable<Exchange>> result = await exchangesController.GetExchange();
+
+                Assert.IsNotNull(result);
+            }
+        }
+
+        // Make sure the correct exchange is returned when GetExchange(id) is called
+        [TestMethod]
+        public async Task TestGetIDSuccessfully()
+        {
+            using (var context = new CryptoCognizantContext(options))
+            {
+                ExchangesController exchangesController = new ExchangesController(context);
+                ActionResult<Exchange> result = await exchangesController.GetExchange(0);
+
+                Assert.IsNotNull(result);
+                Assert.AreEqual(result, exchanges[0]);
+            }
+        }
+
+        // Test getting a no content status code when PutExchange() is called
+        [TestMethod]
+        public async Task TestPutExchangeNoContentStatusCode()
+        {
+            using (var context = new CryptoCognizantContext(options))
+            {
+                string newPairs = "BTC, NAV, LTC";
+                Exchange exchange1 = context.Exchange.Where(x => x.Pairs == exchanges[0].Pairs).Single();
+                exchange1.Pairs = newPairs;
+
+                ExchangesController exchangesController = new ExchangesController(context);
+                IActionResult result = await exchangesController.PutExchange(exchange1.ExchangeId, exchange1) as IActionResult;
+
+                Assert.IsNotNull(result);
+                Assert.IsInstanceOfType(result, typeof(NoContentResult));
+            }
         }
 
 
