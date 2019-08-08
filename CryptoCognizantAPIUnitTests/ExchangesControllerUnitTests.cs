@@ -100,6 +100,48 @@ namespace CryptoCognizantAPIUnitTests
             }
         }
 
+        // Test post method PostExchange()
+        [TestMethod]
+        public async Task TestPostSuccessfully()
+        {
+            using (var context = new CryptoCognizantContext(options))
+            {
+                ExchangesController exchangesController = new ExchangesController(context);
+
+                ActionResult<IEnumerable<Exchange>> result1 = await exchangesController.GetExchange();
+
+                ActionResult<Exchange> delete = await exchangesController.DeleteExchange(0);
+
+                ActionResult<IEnumerable<Exchange>> result2 = await exchangesController.GetExchange();
+
+                // Assert that exchange list changes after exchange is deleted
+                Assert.AreNotEqual(result1, result2);
+            }
+        }
+
+        // Test post method DeleteExchange()
+        [TestMethod]
+        public async Task TestDeleteSuccessfully()
+        {
+            using (var context = new CryptoCognizantContext(options))
+            {
+                ExchangesController exchangesController = new ExchangesController(context);
+
+                Exchange exch = new Exchange()
+                {
+                    Pairs = "USD, USDT, NZD, AUD"
+                };
+
+                ActionResult<IEnumerable<Exchange>> result1 = await exchangesController.GetExchange();
+
+                ActionResult<Exchange> post = await exchangesController.PostExchange(exch);
+
+                ActionResult<IEnumerable<Exchange>> result2 = await exchangesController.GetExchange();
+
+                // Assert that exchange list changes after new exchange is posted
+                Assert.AreNotEqual(result1, result2);
+            }
+        }
 
     }
 }
