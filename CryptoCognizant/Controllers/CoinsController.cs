@@ -28,6 +28,7 @@ namespace CryptoCognizant.Controllers
     {
         private readonly CryptoCognizantContext _context;
         private ICoinRepository coinRepository;
+        private CryptoCognizantContext context;
         private readonly IMapper _mapper;
 
         public CoinsController(CryptoCognizantContext context, IMapper mapper)
@@ -35,6 +36,11 @@ namespace CryptoCognizant.Controllers
             _context = context;
             _mapper = mapper;
             this.coinRepository = new CoinRepository(new CryptoCognizantContext());
+        }
+
+        public CoinsController(CryptoCognizantContext context)
+        {
+            this._context = context;
         }
 
         // GET: api/Coins
