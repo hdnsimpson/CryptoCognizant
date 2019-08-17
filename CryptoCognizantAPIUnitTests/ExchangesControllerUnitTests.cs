@@ -9,7 +9,6 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
-using System.Web.Mvc;
 
 namespace CryptoCognizantAPIUnitTests
 {
