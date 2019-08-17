@@ -101,26 +101,26 @@ namespace CryptoCognizantAPIUnitTests
                 Assert.IsInstanceOfType(result, typeof(NoContentResult));
             }
         }
-        /*
-        // Test post method DeleteExchange()
+        
+        // Test post method DeleteCoin()
         [TestMethod]
         public async Task TestDeleteSuccessfully()
         {
             using (var context = new CryptoCognizantContext(options))
             {
-                ExchangesController exchangesController = new ExchangesController(context);
+                CoinsController coinsController = new CoinsController(context);
 
-                ActionResult<IEnumerable<Exchange>> result1 = await exchangesController.GetExchange();
+                ActionResult<IEnumerable<Coin>> result1 = await coinsController.GetCoin();
 
-                ActionResult<Exchange> delete = await exchangesController.DeleteExchange(0);
+                ActionResult<Coin> delete = await coinsController.DeleteCoin(0);
 
-                ActionResult<IEnumerable<Exchange>> result2 = await exchangesController.GetExchange();
+                ActionResult<IEnumerable<Coin>> result2 = await coinsController.GetCoin();
 
-                // Assert that exchange list changes after exchange is deleted
+                // Assert that coin list changes after coin is deleted
                 Assert.AreNotEqual(result1, result2);
             }
         }
-
+        /*
         // Test post method PostExchange()
         [TestMethod]
         public async Task TestPostSuccessfully()
