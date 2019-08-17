@@ -83,25 +83,25 @@ namespace CryptoCognizantAPIUnitTests
                 Assert.IsNotNull(result);
             }
         }
-        /*
-        // Test getting a no content status code when PutExchange() is called
+        
+        // Test getting a no content status code when PutCoin() is called
         [TestMethod]
-        public async Task TestPutExchangeNoContentStatusCode()
+        public async Task TestPutCoinNoContentStatusCode()
         {
             using (var context = new CryptoCognizantContext(options))
             {
-                string newPairs = "BTC, NAV, LTC";
-                Exchange exchange1 = context.Exchange.Where(x => x.Pairs == exchanges[0].Pairs).Single();
-                exchange1.Pairs = newPairs;
+                Boolean newFav = false;
+                Coin coin1 = context.Coin .Where(x => x.IsFavourite == coins[0].IsFavourite).Single();
+                coin1.IsFavourite = newFav;
 
-                ExchangesController exchangesController = new ExchangesController(context);
-                IActionResult result = await exchangesController.PutExchange(exchange1.ExchangeId, exchange1) as IActionResult;
+                CoinsController coinsController = new CoinsController(context);
+                IActionResult result = await coinsController.PutCoin(coin1.CoinId, coin1) as IActionResult;
 
                 Assert.IsNotNull(result);
                 Assert.IsInstanceOfType(result, typeof(NoContentResult));
             }
         }
-
+        /*
         // Test post method DeleteExchange()
         [TestMethod]
         public async Task TestDeleteSuccessfully()
