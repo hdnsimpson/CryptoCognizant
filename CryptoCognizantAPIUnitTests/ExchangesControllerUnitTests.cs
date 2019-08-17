@@ -101,9 +101,9 @@ namespace CryptoCognizantAPIUnitTests
             }
         }
 
-        // Test post method PostExchange()
+        // Test post method DeleteExchange()
         [TestMethod]
-        public async Task TestPostSuccessfully()
+        public async Task TestDeleteSuccessfully()
         {
             using (var context = new CryptoCognizantContext(options))
             {
@@ -120,9 +120,9 @@ namespace CryptoCognizantAPIUnitTests
             }
         }
 
-        // Test post method DeleteExchange()
+        // Test post method PostExchange()
         [TestMethod]
-        public async Task TestDeleteSuccessfully()
+        public async Task TestPostSuccessfully()
         {
             using (var context = new CryptoCognizantContext(options))
             {
