@@ -15,7 +15,7 @@ using System.Web.Http.Cors;
 
 namespace CryptoCognizant.Controllers
 {
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
 
     public class SYMDTO
     {
