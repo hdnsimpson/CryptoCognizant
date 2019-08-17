@@ -192,6 +192,9 @@ namespace CryptoCognizant.Controllers
             // Removes all coins with empty trading pairs
             coins.RemoveAll(coin => coin.Exchange.Count == 0);
 
+            // Remove all coins that are not selected in the coin list
+            coins.RemoveAll(coin => coin.IsFavourite == false);
+
             return Ok(coins);
         }
 
