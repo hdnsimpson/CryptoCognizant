@@ -38,11 +38,6 @@ namespace CryptoCognizant.Controllers
             this.coinRepository = new CoinRepository(new CryptoCognizantContext());
         }
 
-        public CoinsController(CryptoCognizantContext context)
-        {
-            this._context = context;
-        }
-
         // GET: api/Coins
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Coin>>> GetCoin()

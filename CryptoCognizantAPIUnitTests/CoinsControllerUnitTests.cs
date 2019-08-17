@@ -9,6 +9,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace CryptoCognizantAPIUnitTests
 {
@@ -18,6 +19,8 @@ namespace CryptoCognizantAPIUnitTests
         public static readonly DbContextOptions<CryptoCognizantContext> options
             = new DbContextOptionsBuilder<CryptoCognizantContext>()
             .UseInMemoryDatabase(databaseName: "testDatabase").Options;
+
+        public readonly IMapper _mapper;
 
         public static readonly IList<Coin> coins = new List<Coin>
         {
@@ -64,7 +67,7 @@ namespace CryptoCognizantAPIUnitTests
         {
             using (var context = new CryptoCognizantContext(options))
             {
-                CoinsController coinsController = new CoinsController(context);
+                CoinsController coinsController = new CoinsController(context, _mapper);
                 ActionResult<IEnumerable<Coin>> result = await coinsController.GetCoin();
 
                 Assert.IsNotNull(result);
@@ -77,7 +80,7 @@ namespace CryptoCognizantAPIUnitTests
         {
             using (var context = new CryptoCognizantContext(options))
             {
-                CoinsController coinsController = new CoinsController(context);
+                CoinsController coinsController = new CoinsController(context, _mapper);
                 ActionResult<Coin> result = await coinsController.GetCoin(0);
 
                 Assert.IsNotNull(result);
@@ -94,7 +97,7 @@ namespace CryptoCognizantAPIUnitTests
                 Coin coin1 = context.Coin .Where(x => x.IsFavourite == coins[0].IsFavourite).Single();
                 coin1.IsFavourite = newFav;
 
-                CoinsController coinsController = new CoinsController(context);
+                CoinsController coinsController = new CoinsController(context, _mapper);
                 IActionResult result = await coinsController.PutCoin(coin1.CoinId, coin1) as IActionResult;
 
                 Assert.IsNotNull(result);
@@ -108,7 +111,7 @@ namespace CryptoCognizantAPIUnitTests
         {
             using (var context = new CryptoCognizantContext(options))
             {
-                CoinsController coinsController = new CoinsController(context);
+                CoinsController coinsController = new CoinsController(context, _mapper);
 
                 ActionResult<IEnumerable<Coin>> result1 = await coinsController.GetCoin();
 
